@@ -1,0 +1,92 @@
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Share Tech Mono', monospace;
+    color:#00ff9c;
+
+    /* multi-shade dark gradient */
+    background:linear-gradient(
+        135deg,
+        #000000,
+        #0a0a0a,
+        #111111,
+        #1a1a1a,
+        #050505
+    );
+
+
+    overflow:hidden;
+}
+
+/* subtle scanline overlay */
+.scanlines{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background:repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,156,0.03) 0px,
+        rgba(0,255,156,0.03) 1px,
+        rgb(114,137,218),
+        rgb(66,69,73),
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+/* login box */
+.login-container{
+    background-color: #000000;
+    border:1px solid #00ff9c;
+    padding:40px;
+    height: 350px;
+    width:350px;
+    text-align:center;
+    box-shadow:0 0 25px #00ff9c44;
+    backdrop-filter: blur(4px);
+}
+
+h1{
+    margin-bottom:25px;
+    text-shadow:0 0 8px #00ff9c;
+}
+
+input{
+    width:92%;
+    padding:12px;
+    margin:12px 0;
+    background:black;
+    border:1px solid #00ff9c;
+    color:#00ff9c;
+    outline:none;
+}
+
+input:focus{
+    box-shadow:0 0 10px #00ff9c;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background: rgba(0, 0, 0, 0); 
+    border:1px solid #00ff9c;
+    color:#00ff9c;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#00ff9c;
+    color:black;
+    box-shadow:0 0 15px #00ff9c;
+}
+
+#message{
+    margin-top:15px;
+    height:20px;
+}
