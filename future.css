@@ -1,0 +1,257 @@
+/* =========================
+   GLOBAL BASE
+========================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 15%, #1a1a22, #070709 55%),
+        radial-gradient(circle at 80% 80%, #0b1a14, #000 60%),
+        linear-gradient(140deg, #0a0a0d, #000000);
+    color: #cfd3d8;
+    font-family: 'IBM Plex Mono', monospace;
+    overflow-x: hidden;
+}
+
+/* =========================
+   AMBIENT EFFECTS
+========================= */
+
+.noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    animation: noiseMove 7s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes noiseMove {
+    to { background-position: 240px 240px; }
+}
+
+.drift {
+    position: fixed;
+    inset: -25%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.035),
+        transparent 70%
+    );
+    animation: drift 26s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes drift {
+    to { transform: translate(4%, 4%); }
+}
+
+/* =========================
+   MAIN SYSTEM CONTAINER
+========================= */
+
+.system {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin: auto;
+    padding: 90px 45px;
+}
+
+/* Corruption feedback */
+.system.corrupt {
+    animation: glitch 0.25s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 1px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, -1px); }
+    80% { transform: translate(1px, 2px); }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.system-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #e8ebef;
+    margin-bottom: 10px;
+}
+
+.sub {
+    font-family: 'Inter', sans-serif;
+    opacity: 0.6;
+    line-height: 1.6;
+}
+
+/* =========================
+   FLAGS & LABELS
+========================= */
+
+.flag {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #ff6b81;
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+.label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.45;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   CONTENT BLOCKS
+========================= */
+
+.block {
+    margin: 70px 0;
+}
+
+.block p {
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+/* Emphasis text */
+.emphasis {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Warning sections */
+.warning {
+    border-left: 3px solid #ff6b81;
+    padding-left: 25px;
+    background: linear-gradient(
+        to right,
+        rgba(255, 107, 129, 0.06),
+        transparent
+    );
+}
+
+/* =========================
+   CHOICE SECTION
+========================= */
+
+.choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 110px 0;
+}
+
+/* Buttons */
+.option {
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.4)
+    );
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 32px;
+    cursor: pointer;
+    transition: 0.45s;
+    color: inherit;
+    text-align: left;
+}
+
+.option-title {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.option-desc {
+    margin-top: 14px;
+    font-size: 13px;
+    opacity: 0.6;
+    line-height: 1.6;
+}
+
+/* Hover feedback */
+.option:hover {
+    transform: translateY(-4px);
+}
+
+.refuse:hover {
+    box-shadow: 0 0 25px rgba(255, 80, 80, 0.45);
+    border-color: rgba(255, 80, 80, 0.4);
+}
+
+.accept:hover {
+    box-shadow: 0 0 25px rgba(80, 160, 255, 0.45);
+    border-color: rgba(80, 160, 255, 0.4);
+}
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.final span {
+    display: block;
+    margin-top: 12px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   OVERLAY STATES
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+    white-space: pre-line;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Reject / Failure */
+.overlay.reject {
+    background: radial-gradient(circle, #4a0000, #000);
+    color: #ffb0b0;
+}
+
+/* Accept – Phase 1 (Hope) */
+.overlay.accept.phase-blue {
+    background: radial-gradient(circle, #001e3c, #000);
+    color: #b3cfff;
+}
+
+/* Accept – Phase 2 (Cost) */
+.overlay.accept.phase-red {
+    background: radial-gradient(circle, #3d0000, #000);
+    color: #ff7a90;
+}
+
+/* Accept – Phase 3 (Containment) */
+.overlay.accept.phase-green {
+    background: radial-gradient(circle, #002e1c, #000);
+    color: #00ff9c;
+}

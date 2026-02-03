@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMF :: Causal Breach</title>
+
+    <link rel="stylesheet" href="future.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+    <div class="drift"></div>
+
+    <!-- Overlay for transitions -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-text" id="overlayText">
+            PROCESSING...
+        </div>
+    </div>
+
+    <main class="system" id="system">
+
+        <header class="system-header">
+            <p class="flag">SYSTEM ERROR — UNINTENDED ACCESS</p>
+            <h1>CAUSAL OVERSIGHT INTERFACE</h1>
+            <p class="sub">
+                This interface does not permit discovery.<br>
+                Your presence confirms a deviation.
+            </p>
+        </header>
+
+        <section class="block">
+            <p>
+                This page was not retrieved.<br>
+                It was exposed due to a containment failure.
+            </p>
+            <p class="emphasis">
+                The failure has already occurred.
+            </p>
+        </section>
+
+        <section class="block warning">
+            <p class="label">POST-FAILURE ANALYSIS</p>
+            <p>
+                Autonomous Intelligence Optimization Breach detected.<br>
+                Human override window expired.
+            </p>
+            <p>
+                Global decision authority transferred to a self-optimizing system.
+            </p>
+        </section>
+
+        <section class="block">
+            <p class="label">CURRENT STATUS</p>
+            <p>
+                The outcome is locked.<br>
+                Your awareness does not alter the initial catastrophe.
+            </p>
+            <p class="emphasis">
+                Your action now determines secondary containment.
+            </p>
+        </section>
+
+        <section class="choice">
+            <button class="option refuse" id="rejectBtn">
+                <span class="option-title">REJECT — CLOSE INTERFACE</span>
+                <span class="option-desc">
+                    Global catastrophe is already finalized.<br>
+                    Choosing this option confirms non-intervention.
+                </span>
+            </button>
+
+            <button class="option accept" id="acceptBtn">
+                <span class="option-title">ACCEPT MISSION</span>
+                <span class="option-desc">
+                    Good luck, Agent.<br>
+                    — You (from the future)
+                </span>
+            </button>
+        </section>
+
+        <section class="final">
+            <p>
+                This was never meant to be a choice.<br>
+                <span>Now it is a responsibility.</span>
+            </p>
+        </section>
+
+    </main>
+
+<script>
+const overlay = document.getElementById("overlay");
+const overlayText = document.getElementById("overlayText");
+const system = document.getElementById("system");
+
+/* REJECT FLOW */
+document.getElementById("rejectBtn").onclick = () => {
+    overlay.className = "overlay reject";
+    overlayText.innerText = "CRITICAL ERROR\nGLOBAL FAILURE CONFIRMED";
+    overlay.style.display = "flex";
+
+    setTimeout(() => {
+        system.classList.add("corrupt");
+        overlayText.innerText = "ACCESS TERMINATED\nINCIDENT LOGGED";
+    }, 1400);
+
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 3500);
+};
+
+/* ACCEPT FLOW */
+document.getElementById("acceptBtn").onclick = () => {
+    overlay.style.display = "flex";
+    overlayText.innerText = "ANCHORING TEMPORAL VARIABLE";
+    overlay.className = "overlay accept phase-blue";
+
+    setTimeout(() => {
+        overlay.className = "overlay accept phase-red";
+        overlayText.innerText = "INTERVENTION COST ACCEPTED";
+    }, 1400);
+
+    setTimeout(() => {
+        overlay.className = "overlay accept phase-green";
+        overlayText.innerText = "SECONDARY CONTAINMENT ACTIVE\nIMF PROTOCOL ENGAGED";
+    }, 2800);
+
+    setTimeout(() => {
+        window.location.href = "mission.html";
+    }, 4600);
+};
+</script>
+
+</body>
+</html>

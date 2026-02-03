@@ -21,7 +21,7 @@
             <a href="movies.html">Movies</a>
             <a href="gadgets.html">Gadgets</a>
             <a href="whatif.html">What-If</a>
-            <a href="#">Mission</a>
+            <a href="mission.html">Mission</a>
         </nav>
     </header>
 
@@ -32,13 +32,84 @@
 
         <!-- Placeholder panels -->
         <div class="panel-grid">
-            <div class="panel">Agents Module</div>
-            <div class="panel">Movies Timeline</div>
-            <div class="panel">Gadgets Lab</div>
-            <div class="panel">What-If Simulator</div>
-            <div class="panel">Mission Generator</div>
+            <a href="agents.html" class="panel">Agents Module</a>
+            <a href="movies.html" class="panel">Movies Timeline</a>
+            <a href="gadgets.html" class="panel">Gadgets Lab</a>
+            <a href="whatif.html" class="panel">What-If Simulator</a>
+            <a href="mission.html" class="panel">Mission Generator</a>
         </div>
+
+        <!-- IMF Information Section -->
+        <section class="imf-info">
+            <h2>Impossible Missions Force (IMF)</h2>
+            <p>
+                The Impossible Missions Force is a covert intelligence agency tasked with executing
+                operations deemed too dangerous, too sensitive, or too politically volatile for
+                conventional authorities. IMF missions operate beyond official oversight.
+            </p>
+
+            <h2>IMF Protocol</h2>
+            <p>
+                All IMF agents work under complete deniability. If an operation fails, the Secretary
+                will disavow any knowledge of the mission. Communication devices self-destruct after
+                briefing, and all actions remain classified.
+            </p>
+
+            <h2>Operational Objective</h2>
+            <p>
+                The IMF exists to prevent global catastrophe by neutralizing rogue states, extremist
+                networks, advanced weapons systems, and internal betrayals—often when the threat
+                comes from within intelligence itself.
+            </p>
+
+            <h2>Operational Risk & Exposure</h2>
+            <p>
+                IMF agents operate in environments involving advanced surveillance systems, hostile
+                intelligence agencies, rogue operatives, and unpredictable mission variables.
+                Capture, compromise, or death are constant possibilities during field operations.
+            </p>
+
+            <h2>Risk Reward Doctrine</h2>
+            <p>
+                In exchange for absolute risk, IMF agents gain access to cutting-edge technology,
+                unrestricted operational authority, and the ability to act where global systems fail.
+                Success ensures global stability, while failure leaves no record of their involvement.
+            </p>
+        </section>
     </main>
+
+    <!-- Panel click glow effect -->
+    <script>
+        document.querySelectorAll(".panel").forEach(panel => {
+            panel.addEventListener("click", () => {
+                panel.style.boxShadow = "0 0 25px #00ff9c";
+                setTimeout(() => {
+                    panel.style.boxShadow = "";
+                }, 200);
+            });
+        });
+    </script>
+
+    <!-- IMF hidden access trigger | JavaScript -->
+    <script>
+        let keysPressed = {};
+
+        document.addEventListener("keydown", (e) => {
+            keysPressed[e.code] = true;
+
+            if (
+                keysPressed["ShiftRight"] &&
+                keysPressed["KeyL"] &&
+                keysPressed["Enter"]
+            ) {
+                window.location.href = "future.html";
+            }
+        });
+
+        document.addEventListener("keyup", (e) => {
+            delete keysPressed[e.code];
+        });
+    </script>
 
 </body>
 </html>
