@@ -5,12 +5,9 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background:
-        radial-gradient(circle at 20% 15%, #1a1a22, #070709 55%),
-        radial-gradient(circle at 80% 80%, #0b1a14, #000 60%),
-        linear-gradient(140deg, #0a0a0d, #000000);
-    color: #cfd3d8;
-    font-family: 'IBM Plex Mono', monospace;
+    background: #000000;
+    color: #00ff9c;
+    font-family: 'Share Tech Mono', monospace;
     overflow-x: hidden;
 }
 
@@ -34,11 +31,7 @@ body {
 .drift {
     position: fixed;
     inset: -25%;
-    background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,0.035),
-        transparent 70%
-    );
+    background: radial-gradient(circle, rgba(0,255,156,0.04), transparent 70%);
     animation: drift 26s infinite alternate ease-in-out;
     pointer-events: none;
     z-index: 0;
@@ -60,7 +53,6 @@ body {
     padding: 90px 45px;
 }
 
-/* Corruption feedback */
 .system.corrupt {
     animation: glitch 0.25s infinite;
 }
@@ -78,16 +70,13 @@ body {
 ========================= */
 
 .system-header h1 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
     letter-spacing: 3px;
-    color: #e8ebef;
+    color: #00ff9c;
     margin-bottom: 10px;
 }
 
 .sub {
-    font-family: 'Inter', sans-serif;
-    opacity: 0.6;
+    opacity: 0.7;
     line-height: 1.6;
 }
 
@@ -99,14 +88,13 @@ body {
     font-size: 12px;
     letter-spacing: 2px;
     color: #ff6b81;
-    opacity: 0.85;
     margin-bottom: 12px;
 }
 
 .label {
     font-size: 12px;
     letter-spacing: 2px;
-    opacity: 0.45;
+    opacity: 0.6;
     margin-bottom: 10px;
 }
 
@@ -123,15 +111,14 @@ body {
     opacity: 0.75;
 }
 
-/* Emphasis text */
 .emphasis {
     font-size: 15px;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #00ff9c;
     opacity: 1;
 }
 
-/* Warning sections */
+/* Warning sections (unchanged RED) */
 .warning {
     border-left: 3px solid #ff6b81;
     padding-left: 25px;
@@ -153,25 +140,18 @@ body {
     margin: 110px 0;
 }
 
-/* Buttons */
 .option {
-    background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.4)
-    );
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #00ff9c;
     padding: 32px;
     cursor: pointer;
-    transition: 0.45s;
+    transition: 0.4s;
     color: inherit;
     text-align: left;
 }
 
 .option-title {
-    font-family: 'Inter', sans-serif;
     letter-spacing: 2px;
-    font-weight: 600;
 }
 
 .option-desc {
@@ -181,19 +161,20 @@ body {
     line-height: 1.6;
 }
 
-/* Hover feedback */
 .option:hover {
     transform: translateY(-4px);
 }
 
+/* Reject stays RED */
 .refuse:hover {
     box-shadow: 0 0 25px rgba(255, 80, 80, 0.45);
-    border-color: rgba(255, 80, 80, 0.4);
+    border-color: rgba(255, 80, 80, 0.6);
 }
 
+/* Accept now IMF GREEN */
 .accept:hover {
-    box-shadow: 0 0 25px rgba(80, 160, 255, 0.45);
-    border-color: rgba(80, 160, 255, 0.4);
+    box-shadow: 0 0 25px #00ff9c;
+    border-color: #00ff9c;
 }
 
 /* =========================
@@ -210,7 +191,7 @@ body {
 .final span {
     display: block;
     margin-top: 12px;
-    color: #ffffff;
+    color: #00ff9c;
     letter-spacing: 1px;
 }
 
@@ -229,7 +210,7 @@ body {
     letter-spacing: 2px;
     text-align: center;
     white-space: pre-line;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 /* Reject / Failure */
@@ -238,20 +219,20 @@ body {
     color: #ffb0b0;
 }
 
-/* Accept – Phase 1 (Hope) */
+/* Accept – Phase 1 */
 .overlay.accept.phase-blue {
-    background: radial-gradient(circle, #001e3c, #000);
-    color: #b3cfff;
+    background: radial-gradient(circle, #001a14, #000);
+    color: #9fffdc;
 }
 
-/* Accept – Phase 2 (Cost) */
+/* Accept – Phase 2 */
 .overlay.accept.phase-red {
     background: radial-gradient(circle, #3d0000, #000);
     color: #ff7a90;
 }
 
-/* Accept – Phase 3 (Containment) */
+/* Accept – Phase 3 */
 .overlay.accept.phase-green {
-    background: radial-gradient(circle, #002e1c, #000);
+    background: radial-gradient(circle, #002b1a, #000);
     color: #00ff9c;
 }
