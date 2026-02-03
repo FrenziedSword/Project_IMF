@@ -1,23 +1,142 @@
-/* ===============================
-   MOVIES PAGE – SPECIFIC STYLES
-   =============================== */
+/* --- BASE TERMINAL STYLES --- */
+body {
+    background-color: #000000;
+    color: #00ff9c;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
 
-/* Page Content */
-.content {
-    padding: 50px;
+header {
     text-align: center;
-}
-
-.content p {
-    opacity: 0.8;
     margin-bottom: 40px;
+    border-bottom: 2px solid #00ff9c;
+    padding-bottom: 10px;
 }
 
-/* Placeholder */
-.placeholder {
-    border: 1px dashed #00ff9c;
-    padding: 40px;
-    max-width: 700px;
+h1 {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(0, 255, 156, 0.5);
+}
+
+/* --- GRID LAYOUT --- */
+.grid-container {
+    display: grid;
+    /* Responsive columns: Fits as many 250px cards as possible */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
     margin: 0 auto;
-    opacity: 0.6;
+}
+
+/* --- MOVIE CARD COMPONENT --- */
+.movie-card {
+    position: relative;
+    border: 1px solid #00ff9c;
+    padding: 10px;
+    background-color: #000; /* Ensure bg is black */
+    cursor: crosshair;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* --- IMAGE STYLES --- */
+.poster-frame {
+    width: 100%;
+    aspect-ratio: 2/3; /* Standard movie poster ratio */
+    background-color: #051a10;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #00ff9c;
+    margin-bottom: 12px;
+}
+
+.poster-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* The "Classified" effect: Grayscale and high contrast */
+    filter: grayscale(100%) contrast(1.2) brightness(0.8);
+    mix-blend-mode: luminosity;
+    transition: 0.4s ease;
+}
+
+/* --- TEXT CONTENT --- */
+.movie-info {
+    padding: 0 5px;
+}
+
+.movie-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 8px 0;
+    border-bottom: 1px dashed #00ff9c;
+    display: inline-block;
+}
+
+.movie-desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0.7;
+    margin-top: 0;
+}
+
+/* --- BADGES --- */
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #000;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 3px 6px;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* --- HOVER ANIMATIONS --- */
+.movie-card:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 156, 0.3), inset 0 0 10px rgba(0, 255, 156, 0.1);
+    transform: translateY(-5px);
+    z-index: 2;
+}
+
+.movie-card:hover .poster-frame img {
+    filter: grayscale(0%) contrast(1) brightness(1); /* Reveal true image */
+    mix-blend-mode: normal;
+}
+
+.movie-card:hover .movie-desc {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(0, 255, 156, 0.5);
+}
+
+/* --- SCANLINE OVERLAY EFFECT --- */
+.movie-card::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* Create thin horizontal lines */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 50%, 
+        rgba(0, 255, 156, 0.15) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 5;
+    pointer-events:none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.movie-card:hover::after {
+    opacity: 1;
 }
