@@ -1,27 +1,158 @@
 /* ===============================
-   WHAT-IF PAGE – SPECIFIC STYLES
+   WHAT-IF PAGE – FINALIZED STYLES
    =============================== */
 
-/* Page Content */
 .content {
     padding: 50px;
     text-align: center;
 }
 
-.content h1 {
-    margin-bottom: 10px;
+/* -------------------------------
+   CONTROLS - CENTERED & ORIGINAL
+-------------------------------- */
+
+.mission-controls {
+    margin: 30px 0; /* Kept your original spacing */
 }
 
-.content p {
-    opacity: 0.8;
-    margin-bottom: 40px;
+/* -------------------------------
+   BUTTON STYLES (RESTORED EXACTLY)
+-------------------------------- */
+
+.mission-controls button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.15rem;
+    padding: 14px 36px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    color: #00ff9c;
+    background: transparent;
+    border: 2px solid #00ff9c;
+    cursor: pointer;
+
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+    /* YOUR ORIGINAL IDLE PULSE */
+    box-shadow: 0 0 6px rgba(0, 255, 156, 0.4);
+    animation: whatIfPulse 2.5s infinite;
 }
 
-/* Placeholder */
-.placeholder {
+/* Hover = Activation Surge */
+.mission-controls button:hover {
+    background-color: #00ff9c;
+    color: #000;
+    box-shadow: 
+        0 0 10px #00ff9c, 
+        0 0 25px rgba(0, 255, 156, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Click Feedback */
+.mission-controls button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+        0 0 6px rgba(0, 255, 156, 0.6);
+}
+
+/* Keyboard Focus */
+.mission-controls button:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 2px #000, 
+        0 0 0 4px #00ff9c;
+}
+
+/* ORIGINAL KEYFRAMES */
+@keyframes whatIfPulse {
+    0% { box-shadow: 0 0 6px rgba(0, 255, 156, 0.4); }
+    50% { box-shadow: 0 0 14px rgba(0, 255, 156, 0.9); }
+    100% { box-shadow: 0 0 6px rgba(0, 255, 156, 0.4); }
+}
+
+/* -------------------------------
+   RESULT BOX – ADAPTED FOR LONG STORIES
+-------------------------------- */
+
+.result-box {
+    margin-top: 35px;
+    padding: 24px;
     border: 1px dashed #00ff9c;
-    padding: 40px;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.6;
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* READABILITY FIXES */
+    background-color: rgba(0, 0, 0, 0.9); 
+    opacity: 1; 
+    line-height: 1.8; 
+    letter-spacing: 0.5px; 
+    
+    /* Handling the Long Text */
+    max-height: 450px;       
+    overflow-y: auto;        
+    text-align: left;        
+    font-size: 1rem;         
+    
+    /* Animation Properties */
+    transform: translateY(8px);
+    transition: 
+        opacity 0.35s ease, 
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Reveal Animation State - BOX PULSE RESTORED */
+.result-box.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 255, 156, 0.5);
+    animation: classifiedPulse 2.5s ease-in-out;
+}
+
+/* HEADERS inside the stories */
+.result-box strong {
+    color: #00ff9c; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block; 
+    margin-bottom: 5px; 
+    padding-bottom: 2px; 
+}
+
+/* ORIGINAL PULSE FOR THE BOX */
+@keyframes classifiedPulse {
+    0% { box-shadow: 0 0 6px rgba(0, 255, 156, 0.3); }
+    50% { box-shadow: 0 0 14px rgba(0, 255, 156, 0.8); }
+    100% { box-shadow: 0 0 6px rgba(0, 255, 156, 0.3); }
+}
+
+/* -------------------------------
+   SCROLLBAR STYLING - SUBTLE, NO GLOW
+-------------------------------- */
+
+.result-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.result-box::-webkit-scrollbar-track {
+    background: #000; 
+    border-left: 1px solid #111;
+}
+
+.result-box::-webkit-scrollbar-thumb {
+    /* Low opacity green, subtle border. No glow. */
+    background: rgba(0, 255, 156, 0.2); 
+    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 156, 0.3);
+}
+
+.result-box::-webkit-scrollbar-thumb:hover {
+    /* Slightly brighter on hover, still subtle. */
+    background: rgba(0, 255, 156, 0.4);
 }

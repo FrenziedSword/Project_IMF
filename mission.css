@@ -1,27 +1,101 @@
 /* ===============================
-   MISSION PAGE – SPECIFIC STYLES
+   MISSION GENERATOR – STYLES
    =============================== */
 
-/* Page Content */
 .content {
     padding: 50px;
     text-align: center;
 }
 
-.content h1 {
-    margin-bottom: 10px;
+.mission-controls {
+    margin: 20px 0;
 }
 
-.content p {
-    opacity: 0.8;
-    margin-bottom: 40px;
+select, button {
+    margin: 10px;
+    padding: 10px 14px;
+    background: #000;
+    color: #00ff9c;
+    border: 1px solid #00ff9c;
+    font-family: inherit;
 }
 
-/* Placeholder */
-.placeholder {
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgba(0, 255, 156, 0.1);
+}
+
+.mission-box {
+    margin-top: 30px;
+    padding: 20px;
     border: 1px dashed #00ff9c;
-    padding: 40px;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.85;
 }
+
+/* IMF Command Button – Interactive & Dynamic */
+.mission-controls button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.15rem;
+    padding: 14px 36px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #00ff66;
+    background: transparent;
+    border: 2px solid #00ff66;
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+    /* subtle idle pulse */
+    box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+    animation: pulseGlow 2.5s infinite;
+}
+
+/* Hover = authority surge */
+.mission-controls button:hover {
+    background-color: #00ff66;
+    color: #000;
+    box-shadow:
+        0 0 10px #00ff66,
+        0 0 25px rgba(0, 255, 102, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Click = physical feedback */
+.mission-controls button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow:
+        0 0 6px rgba(0, 255, 102, 0.6);
+}
+
+/* Keyboard focus */
+.mission-controls button:focus {
+    outline: none;
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px #00ff66;
+}
+
+/* Idle pulse animation */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 14px rgba(0, 255, 102, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+    }
+}
+
