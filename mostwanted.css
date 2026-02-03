@@ -1,0 +1,24 @@
+/* ===============================
+   MOST WANTED PAGE – SPECIFIC STYLES
+   =============================== */
+
+/* Page Content */
+.content {
+    padding: 50px;
+    text-align: center;
+}
+
+.content p {
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+/* Placeholder */
+.placeholder {
+    border: 1px dashed #00ff9c;
+    padding: 40px;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.6;
+    line-height: 1.6;
+}

@@ -8,6 +8,7 @@ body {
     font-family: 'Share Tech Mono', monospace;
     background: #000000;
     color: #00ff9c;
+    overflow-y: scroll;
 }
 
 /* ===============================
@@ -34,10 +35,10 @@ body {
 
 .nav-links a {
     position: relative;
-    margin-left: 20px;
+    margin-left: 10px;
     text-decoration: none;
     color: #00ff9c;
-    padding: 6px 10px;
+    padding: 6px 8px;
     transition: 0.25s ease;
 }
 
@@ -54,17 +55,23 @@ body {
 
 .nav-links a:hover {
     transform: translateY(-1px);
-    background: rgba(0, 255, 156, 0.08);
+    background: #00ff9c14;
 }
 
 .nav-links a:hover::after {
     width: 100%;
 }
 
-/* Active page indicator (calm, authoritative) */
+/* Active page indicator */
 .nav-links a.active::after {
     width: 100%;
 }
+
+.nav-links a:active {
+    transform: translateY(1px);
+    background: #00ff9d1e;
+}
+
 
 /* ===============================
    COMMON MAIN AREA (DEFAULT)
