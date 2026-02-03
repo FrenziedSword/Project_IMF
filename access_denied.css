@@ -1,0 +1,89 @@
+:root {
+    --accent: #ff4d4d;
+    --bg: #040404;
+    --mono: 'Share Tech Mono', monospace;
+}
+
+*{box-sizing:border-box}
+html,body {
+    height:100%;
+    margin:0;
+    background:linear-gradient(
+        180deg,
+        #000,
+        #080808 60%
+    );
+    font-family:var(--mono);
+    color:#fff
+}
+
+.denied-wrap {
+    width:min(720px,92%);
+    margin:6vh auto;
+    padding:28px;
+    text-align:center;
+    border:1px solid rgba(255,77,77,.18);
+    background:rgba(0,0,0,.6);
+    box-shadow:0 0 40px rgba(255,77,77,.06);
+    border-radius:10px;
+}
+
+.danger-icon {
+    font-size:48px;
+    filter:drop-shadow(0 0 10px rgba(255,77,77,.5));
+    margin-bottom:6px;
+}
+
+h1 {
+    margin:4px 0 12px;
+    color:var(--accent);
+    letter-spacing:2px;
+    text-shadow:0 0 10px rgba(255,77,77,.2);
+}
+
+.msg {
+    font-size:18px;
+    margin:6px 0 18px;
+    color:#ffd6d6;
+}
+
+.ip-box {
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:6px;
+    border:1px solid rgba(255,77,77,.12);
+    background:rgba(0,0,0,.4);
+    min-width:260px;
+}
+
+.ip-box .label {
+    font-size:12px;
+    opacity:.7;
+    margin-bottom:6px
+}
+#user-ip {
+    font-size:18px;
+    letter-spacing:1px;
+    color:#fff;
+    margin-top:4px
+}
+
+.note {
+    margin-top:18px;
+    font-size:13px;
+    color:#e6bcbc
+}
+
+.controls {
+    margin-top:20px
+}
+.btn {
+    display:inline-block;
+    padding:10px 18px;
+    text-decoration:none;
+    color:#000;
+    background:var(--accent);
+    border-radius:6px;
+    box-shadow:0 6px 18px rgba(255,77,77,.12);
+    font-weight:700;
+}
