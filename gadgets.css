@@ -27,7 +27,7 @@ body {
 .top-bar {
     border-bottom: 2px solid var(--spy-green);
     margin-bottom: 3rem;
-    padding-bottom: 1rem;
+    padding-bottom: 16px 30px;
     text-transform: uppercase;
 }
 

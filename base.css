@@ -72,6 +72,62 @@ body {
     background: #00ff9d1e;
 }
 
+/* ===============================
+   TERMINATE BUTTON 
+   ===============================*/
+
+.terminate-btn {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 999;
+
+    padding: 6px;
+    border: 1px solid rgba(0,255,156,.25);
+    background: rgb(0,0,0,);
+    backdrop-filter: blur(4px);
+}
+
+
+.btn {
+    background: transparent;
+    color: #00ff9c;
+    border: 1px solid #00ff9c;
+
+    padding: 10px 18px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 
+        color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.terminate-btn .btn:hover{
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 12px rgba(0,255,156,.5);
+}
+
+.terminate-btn .btn:active{
+  transform: translateY(1px);
+  box-shadow: 0 0 6px rgba(0,255,156,.35);
+}
+
+@keyframes idlePulse{
+  0%,100%{ box-shadow: 0 0 0 rgba(0,255,156,0); }
+  50%{ box-shadow: 0 0 6px rgba(0,255,156,.15); }
+}
+
+.terminate-btn{
+  animation: idlePulse 4s ease-in-out infinite;
+}
+
 
 /* ===============================
    COMMON MAIN AREA (DEFAULT)
