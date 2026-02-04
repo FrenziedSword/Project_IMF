@@ -1,0 +1,135 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace; /* Spy-like font */
+    background: linear-gradient(135deg, #000000, #1a1a1a); /* Dark gradient background */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green glow */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('https://via.placeholder.com/1920x1080/000000/00ff00?text=Spy+Background') no-repeat center center/cover; /* Placeholder for spy-themed image */
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h2, .hero p, .hero button {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.cta {
+    background: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.cta:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    border-color: #ffffff;
+}
+
+.card h3 {
+    color: #00ff00;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #888;
+}

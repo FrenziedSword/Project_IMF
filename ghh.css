@@ -1,0 +1,125 @@
+/* Spy-themed CSS: Dark, sleek, with neon accents, shadows, and hover effects */
+
+body {
+    font-family: 'Courier New', monospace; /* Techy, spy-like font */
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #000000, #1a1a1a); /* Dark gradient background */
+    color: #00ff00; /* Neon green text for spy vibe */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    max-width: 1300px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+    border: 2px solid #00ff00; /* Neon green border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 0 20px rgba(0, 255, 0, 0.1); /* Glowing shadow */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.container:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.8), inset 0 0 40px rgba(0, 255, 0, 0.2); /* Intensify glow on hover */
+    transform: scale(1.02); /* Slight zoom */
+}
+
+.image-box {
+    width: 250px;
+    height: 300px;
+    border: 2px solid #ff0000; /* Red border for danger/spy alert */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #333, #000); /* Dark gradient */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Red glow */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-box:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8); /* Intensify red glow */
+    transform: scale(1.05); /* Zoom in */
+    border-color: #ffff00; /* Change to yellow on hover for alert */
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.image-box:hover img {
+    filter: brightness(1.2) contrast(1.1); /* Enhance image on hover */
+}
+
+.content-box {
+    flex: 1;
+    height: 260px;
+    border: 2px solid #0000ff; /* Blue border */
+    padding: 20px;
+    background: linear-gradient(45deg, #111, #000); /* Dark gradient */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5); /* Blue glow */
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.content-box:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.8); /* Intensify blue glow */
+    transform: translateY(-5px); /* Lift up slightly */
+    background: linear-gradient(45deg, #222, #000); /* Slightly lighter on hover */
+}
+
+.content-box h2 {
+    margin-top: 0;
+    color: #ffff00; /* Yellow for headings */
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* Glowing text */
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: flicker 2s infinite alternate; /* Flickering effect for spy feel */
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.content-box p {
+    line-height: 1.6;
+    color: #00ff00; /* Neon green */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+    transition: color 0.3s ease;
+}
+
+.content-box:hover p {
+    color: #ffffff; /* Turn white on hover */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-box {
+        width: 100%;
+        max-width: 250px;
+    }
+    .content-box {
+        width: 100%;
+        height: auto;
+    }
+}
