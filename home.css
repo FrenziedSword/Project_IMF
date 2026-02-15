@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Share Tech Mono', monospace;
+    background: #000000;
+    color: #00ff9c;
+}
+
+/* Top Navigation Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+    border-bottom: 1px solid #00ff9c;
+}
+
+.logo {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #00ff9c;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    text-shadow: 0 0 8px #00ff9c;
+}
+
+.terminate-btn{
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 999;
+
+    padding: 6px;
+    border: 1px solid rgba(0,255,156,.25);
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(4px);
+}
+
+.btn {
+    background: transparent;
+    color: #00ff9c;
+    border: 1px solid #00ff9c;
+
+    padding: 10px 18px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 
+        color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.terminate-btn .btn:hover{
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 12px rgba(0,255,156,.5);
+}
+
+.terminate-btn .btn:active{
+  transform: translateY(1px);
+  box-shadow: 0 0 6px rgba(0,255,156,.35);
+}
+
+@keyframes idlePulse{
+  0%,100%{ box-shadow: 0 0 0 rgba(0,255,156,0); }
+  50%{ box-shadow: 0 0 6px rgba(0,255,156,.15); }
+}
+
+.terminate-btn{
+  animation: idlePulse 4s ease-in-out infinite;
+}
+
+
+/* Main Area */
+.main-area {
+    padding: 50px;
+    text-align: center;
+}
+
+.main-area h1 {
+    margin-bottom: 10px;
+}
+
+.main-area p {
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Panels */
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.panel {
+    border: 1px solid #00ff9c;
+    padding: 30px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.panel:hover {
+    box-shadow: 0 0 20px #00ff9c;
+    transform: translateY(-5px);
+}
+
+/* Panel entry animation */
+.panel {
+    opacity: 0;
+    animation: panelIn 0.6s ease-out forwards;
+}
+
+.panel:nth-child(1) { animation-delay: 0.1s; }
+.panel:nth-child(2) { animation-delay: 0.2s; }
+.panel:nth-child(3) { animation-delay: 0.3s; }
+.panel:nth-child(4) { animation-delay: 0.4s; }
+.panel:nth-child(5) { animation-delay: 0.5s; }
+.panel:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes panelIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   IMF INFORMATION SECTION
+   =============================== */
+
+.imf-info {
+    margin-top: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.imf-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+.imf-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.7;
+}

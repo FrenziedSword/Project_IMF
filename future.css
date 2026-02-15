@@ -1,0 +1,238 @@
+/* =========================
+   GLOBAL BASE
+========================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000000;
+    color: #00ff9c;
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+}
+
+/* =========================
+   AMBIENT EFFECTS
+========================= */
+
+.noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    animation: noiseMove 7s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes noiseMove {
+    to { background-position: 240px 240px; }
+}
+
+.drift {
+    position: fixed;
+    inset: -25%;
+    background: radial-gradient(circle, rgba(0,255,156,0.04), transparent 70%);
+    animation: drift 26s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes drift {
+    to { transform: translate(4%, 4%); }
+}
+
+/* =========================
+   MAIN SYSTEM CONTAINER
+========================= */
+
+.system {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin: auto;
+    padding: 90px 45px;
+}
+
+.system.corrupt {
+    animation: glitch 0.25s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 1px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, -1px); }
+    80% { transform: translate(1px, 2px); }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.system-header h1 {
+    letter-spacing: 3px;
+    color: #00ff9c;
+    margin-bottom: 10px;
+}
+
+.sub {
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+/* =========================
+   FLAGS & LABELS
+========================= */
+
+.flag {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #ff6b81;
+    margin-bottom: 12px;
+}
+
+.label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   CONTENT BLOCKS
+========================= */
+
+.block {
+    margin: 70px 0;
+}
+
+.block p {
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+.emphasis {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #00ff9c;
+    opacity: 1;
+}
+
+/* Warning sections (unchanged RED) */
+.warning {
+    border-left: 3px solid #ff6b81;
+    padding-left: 25px;
+    background: linear-gradient(
+        to right,
+        rgba(255, 107, 129, 0.06),
+        transparent
+    );
+}
+
+/* =========================
+   CHOICE SECTION
+========================= */
+
+.choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 110px 0;
+}
+
+.option {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #00ff9c;
+    padding: 32px;
+    cursor: pointer;
+    transition: 0.4s;
+    color: inherit;
+    text-align: left;
+}
+
+.option-title {
+    letter-spacing: 2px;
+}
+
+.option-desc {
+    margin-top: 14px;
+    font-size: 13px;
+    opacity: 0.6;
+    line-height: 1.6;
+}
+
+.option:hover {
+    transform: translateY(-4px);
+}
+
+/* Reject stays RED */
+.refuse:hover {
+    box-shadow: 0 0 25px rgba(255, 80, 80, 0.45);
+    border-color: rgba(255, 80, 80, 0.6);
+}
+
+/* Accept now IMF GREEN */
+.accept:hover {
+    box-shadow: 0 0 25px #00ff9c;
+    border-color: #00ff9c;
+}
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.final span {
+    display: block;
+    margin-top: 12px;
+    color: #00ff9c;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   OVERLAY STATES
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+    white-space: pre-line;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Reject / Failure */
+.overlay.reject {
+    background: radial-gradient(circle, #4a0000, #000);
+    color: #ffb0b0;
+}
+
+/* Accept – Phase 1 */
+.overlay.accept.phase-blue {
+    background: radial-gradient(circle, #001a14, #000);
+    color: #9fffdc;
+}
+
+/* Accept – Phase 2 */
+.overlay.accept.phase-red {
+    background: radial-gradient(circle, #3d0000, #000);
+    color: #ff7a90;
+}
+
+/* Accept – Phase 3 */
+.overlay.accept.phase-green {
+    background: radial-gradient(circle, #002b1a, #000);
+    color: #00ff9c;
+}

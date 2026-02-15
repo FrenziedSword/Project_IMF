@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMF Mission</title>
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="mission.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <header class="top-bar">
+        <div class="logo">IMF TERMINAL</div>
+
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="agents.html">Agents</a>
+            <a href="movies.html">Movies</a>
+            <a href="gadgets.html">Gadgets</a>
+            <a href="whatif.html">What-If</a>
+            <a href="mission.html" class="active">Mission</a>
+        </nav>
+    </header>
+
+    <div class="terminate-btn">
+            <button class="btn" onClick="panicExit()">Terminate Session...</button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+        <h1>Mission Assignment</h1>
+        <p>Stand by. Mission parameters will be assigned by IMF Command.</p>
+
+        <!-- Mission Control -->
+        <div class="mission-controls">
+            <button id="generate">ASSIGN MISSION</button>
+        </div>
+
+        <!-- Output -->
+        <div id="missionResult" class="mission-box">
+            Awaiting mission assignment.
+        </div>
+    </main>
+
+    <!-- Minimal JS -->
+    <script>
+        const threats = ["rogue", "ai", "bio", "nuclear", "internal"];
+        const locations = ["urban", "foreign", "facility", "cyber", "blacksite"];
+        const urgencies = ["low", "medium", "high", "critical"];
+
+        const threatText = {
+            rogue: "A rogue intelligence cell has gone operational outside any known chain of command.",
+            ai: "An autonomous AI system has breached its containment protocols and begun self-optimization.",
+            bio: "A classified bioweapon has entered an unstable containment state.",
+            nuclear: "Escalation indicators suggest imminent nuclear miscalculation.",
+            internal: "Evidence indicates a compromise within IMF internal operations."
+        };
+
+        const locationText = {
+            urban: "The operation is centered in a densely populated urban environment.",
+            foreign: "The mission will be executed within hostile foreign territory.",
+            facility: "The target is secured inside a high-security installation.",
+            cyber: "The threat exists entirely within digital infrastructure.",
+            blacksite: "The location remains unverified and off all official records."
+        };
+
+        const urgencyText = {
+            low: "Current conditions allow observation, but instability is increasing.",
+            medium: "The intervention window is narrowing rapidly.",
+            high: "Immediate action is required to prevent escalation.",
+            critical: "Failure will result in irreversible global consequences."
+        };
+
+        const urgencyDirective = {
+            low: "Maintain surveillance. Engagement only upon escalation.",
+            medium: "Execute within the available operational window.",
+            high: "Immediate execution authorized. Abort conditions revoked.",
+            critical: "Proceed without delay. Mission failure is not an option."
+        };
+
+        const clearanceMap = {
+            low: 3,
+            medium: 4,
+            high: 6,
+            critical: 7
+        };
+
+        const statusMap = {
+            rogue: "ACTIVE",
+            ai: "CONTAINMENT FAILURE",
+            bio: "BIOHAZARD",
+            nuclear: "ESCALATION IMMINENT",
+            internal: "COMPROMISED"
+        };
+
+        const objectiveMap = {
+            rogue: "Identify and dismantle the rogue cell before intelligence assets are compromised.",
+            ai: "Isolate, disable, and permanently shut down the autonomous AI system.",
+            bio: "Secure the bioweapon and prevent any form of contamination or leakage.",
+            nuclear: "De-escalate the situation and prevent nuclear engagement at all costs.",
+            internal: "Expose the internal breach and restore IMF operational integrity."
+        };
+
+        const constraintMap = {
+            cyber: [
+                "No physical field team deployment",
+                "Network traces must be erased",
+                "Attribution must remain impossible"
+            ],
+            urban: [
+                "Civilian exposure must be minimized",
+                "Local authorities cannot be alerted",
+                "Public panic must be avoided"
+            ],
+            foreign: [
+                "No diplomatic channels may be used",
+                "Extraction support is unavailable",
+                "Capture will be denied"
+            ],
+            default: [
+                "Full deniability is in effect",
+                "External support is unavailable",
+                "Mission failure will be disavowed"
+            ]
+        };
+
+        function pickRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        document.getElementById("generate").addEventListener("click", () => {
+            const threat = pickRandom(threats);
+            const location = pickRandom(locations);
+            const urgency = pickRandom(urgencies);
+            const output = document.getElementById("missionResult");
+
+            const missionCode = `IMF-${threat.toUpperCase()}-${urgency.toUpperCase()}`;
+            const clearance = clearanceMap[urgency];
+            const status = statusMap[threat];
+
+            const baseConstraints = constraintMap[location] || constraintMap.default;
+
+            output.innerHTML = `
+                <div class="mission-block">
+                    <p><strong>MISSION CODE:</strong> ${missionCode}</p>
+                    <p><strong>STATUS:</strong> ${status}</p>
+                    <p><strong>CLEARANCE LEVEL:</strong> ${clearance}</p>
+                </div>
+
+                <div class="mission-block">
+                    <strong>SITUATION OVERVIEW</strong>
+                    <p>${threatText[threat]}</p>
+                    <p>${locationText[location]}</p>
+                    <p>${urgencyText[urgency]}</p>
+                </div>
+
+                <div class="mission-block">
+                    <strong>MISSION OBJECTIVE</strong>
+                    <p>${objectiveMap[threat]}</p>
+                </div>
+
+                <div class="mission-block">
+                    <strong>OPERATIONAL CONSTRAINTS</strong>
+                    <ul>
+                        ${baseConstraints.map(item => `<li>${item}</li>`).join("")}
+                    </ul>
+                </div>
+
+                <div class="mission-block">
+                    <strong>FINAL DIRECTIVE</strong>
+                    <p>${urgencyDirective[urgency]}</p>
+                    <p>This briefing will not be acknowledged.</p>
+                </div>
+            `;
+        });
+    </script>
+
+    <script src="immediate_terminate.js"></script>
+</body>
+</html>

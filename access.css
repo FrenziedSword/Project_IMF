@@ -28,7 +28,7 @@ body {
 .status::after{
     font-size: 20px;
     content:"Initializing . . .";
-    animation:textChange 7s linear infinite;
+    animation:textChange 4s linear infinite;
 }
 
 .bar {
@@ -45,7 +45,7 @@ body {
     position:absolute;
     inset:0;
     background:#00ff66;
-    animation:load 6s linear infinite;
+    animation:load 3s linear infinite;
 }
 
 @keyframes textChange{

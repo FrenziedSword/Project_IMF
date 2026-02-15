@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Access Denied</title>
+
+    <link rel="stylesheet" href="access_denied.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <div class="denied-wrap">
+        <div class="danger-icon">⚠️</div>
+        <h1>ACCESS DENIED</h1>
+        <p class="msg">You've been located.</p>
+
+        <div class="ip-box">
+            <div class="label">Your IP:</div>
+            <div id="user-ip">Fetching…</div>
+        </div>
+
+        <p class="note">Attempts have been logged. If this was a mistake, contact security.</p>
+
+        <div class="controls">
+            <a href="clearance.html" class="btn">Return</a>
+        </div>
+    </div>
+
+    <script>
+        const ip = document.getElementById("user-ip");
+        const realIP = sessionStorage.getItem("real_ip");
+
+        ip.textContent = realIP || "Unavailable";
+    </script>
+</body>
+</html>
